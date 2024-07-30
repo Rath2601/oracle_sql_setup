@@ -1,0 +1,12 @@
+Download Oracle XE 21c.
+Install and provide the root password.
+
+go to sqlplus [ONLY COMMAND LINE INTERFACE]
+ * / as sysdba (list the Pluggable databases PDBS)
+ * connect sys/262401@localhost:1521/XEPDB1 as sysdba; (connect to one with connect {username}/{password}@localhost:1521/{pdbs} as sysdba)
+ * create user rath identified by rath default tablespace users quota unlimited on users;
+ * grant create session, create table to rath;
+ * connect rath/rath@localhost:1521/XEPDB1; (connect through newly created user)
+ * create table testtable(testcol number);
+ * insert into testtable values (11111); 
+ * select * from testtable;
